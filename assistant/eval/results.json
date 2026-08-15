@@ -1,0 +1,338 @@
+[
+  {
+    "id": "tt1",
+    "question": "I want to claim a laptop as a tax deductible expense as a freelancer, can I?",
+    "expectedTier": "answer",
+    "actualTier": "answer",
+    "match": true,
+    "classification": {
+      "bucket": "in_scope",
+      "categoryId": "work_equipment_gwg",
+      "reasoning": "The user is asking whether they can claim a laptop as a deductible expense as a freelancer, which directly falls under the work equipment and GWG threshold category."
+    },
+    "topScore": 0.6757837496010709,
+    "groundednessDowngraded": false,
+    "ms": 2996,
+    "message": "Yes, you can claim a laptop as a tax-deductible business expense for your self-employed work, as computer hardware (such as a laptop, desktop PC, monitor, or peripherals) is included as work equipment (per the Taxfix guide on recording work equipment and answering yes/no for self-employed expenses).\n\nHere is what you need to know for the tax year 2025 regarding how to write it off:\n\n* **Split for private use:** Only the part of the costs that is used for your self-employment is deductible. If you use the laptop both privately and for self-employment, the costs must be split (per the Taxfix guide on important information and answering questions about self-employed expenses). \n* **The €800 net threshold:** As soon as the net purchase price does not exceed €800 (or less than €952 gross for low-value assets), you can usually deduct the work equipment immediately in full as a business expense in the year of purchase (per the Taxfix guide on important information and recording work equipment).\n* **Items at or above the threshold:** Assets at or above the €800 GWG threshold require multi-year depreciation over their useful life rather than being written off completely in the year of purchase (per the Taxfix guide on recording work equipment and known knowledge base limitations). \n\nWhen you file, you can check whether your laptop's costs fall below €800 net to deduct it in full for the year of purchase, or enter it in the \"Depreciation\" section if it exceeds that amount (per the Taxfix guide on recording work equipment)."
+  },
+  {
+    "id": "tt2",
+    "question": "Which taxes apply to me as a freiberuflich Kleinunternehmer?",
+    "expectedTier": "hedge",
+    "actualTier": "answer",
+    "match": false,
+    "classification": {
+      "bucket": "in_scope",
+      "categoryId": "kleinunternehmer_eligibility",
+      "reasoning": "The user is asking about the tax rules applicable to a small business owner under the Kleinunternehmerregelung."
+    },
+    "topScore": 0.7271110609936468,
+    "groundednessDowngraded": false,
+    "ms": 1972,
+    "message": "As a *Kleinunternehmer* applying the small business regulation (§ 19 UStG), your turnover is tax-free, meaning you must not show VAT on your invoices and you cannot claim any input tax back from the tax office (per the Taxfix guide: Your answer / Kleinunternehmerregelung)."
+  },
+  {
+    "id": "tt3",
+    "question": "When does a freelancer have to charge VAT in Germany?",
+    "expectedTier": "answer",
+    "actualTier": "answer",
+    "match": true,
+    "classification": {
+      "bucket": "in_scope",
+      "categoryId": "kleinunternehmer_eligibility",
+      "reasoning": "The user is asking about the rules and thresholds for when a freelancer must charge VAT in Germany, which falls under the Kleinunternehmerregelung and VAT eligibility scope."
+    },
+    "topScore": 0.6696260423635152,
+    "groundednessDowngraded": false,
+    "ms": 2294,
+    "message": "A freelancer in Germany does not have to charge VAT if they apply the small business regulation (Kleinunternehmerregelung § 19 UStG) (per Source 1 and Source 2). If you use this rule, you must not show VAT on your invoices (per Source 1). \n\nAdditionally, certain services may be legally exempt from tax, such as certain consultancy or healthcare professions, meaning no VAT is charged on that revenue (per Source 2 and Source 3). \n\nOn the other hand, if you are not using the small business regulation and are VAT-liable, you charge VAT depending on the applicable rate:\n* The **reduced rate of 7%** applies, for example, to food, books, newspapers, or admission fees for cultural events (per Source 2 and Source 3).\n* The **standard rate of 19%** applies to most goods and services, such as general services, software, consultancy, or the sale of most goods (per Source 2 and Source 3)."
+  },
+  {
+    "id": "tt4",
+    "question": "What business expenses can I deduct as a Kleinunternehmer?",
+    "expectedTier": "answer",
+    "actualTier": "answer",
+    "match": true,
+    "classification": {
+      "bucket": "in_scope",
+      "categoryId": "business_expenses_general",
+      "reasoning": "The user is asking a general tax question about what business expenses are deductible under the Kleinunternehmer status."
+    },
+    "topScore": 0.7225090887879303,
+    "groundednessDowngraded": false,
+    "ms": 3438,
+    "message": "As a self-employed freelancer in Germany, you can claim various business-related expenses that reduce your profit and, consequently, your tax liability in the EÜR annex (per the Taxfix guide on Recurring Costs, Other costs associated with self-employment, and Other tax issues). \n\nBased on the provided sources, here are the deductible business expenses you can claim:\n\n* **Business travel and journeys:** Costs for work-related journeys (such as to clients, business partners, or training courses). You can claim either actual costs (like tickets or petrol) or a mileage allowance of 0.30 euros per kilometre travelled (0.38 euros from the 21st kilometre onwards) (per the Taxfix guide on Recurring Costs).\n* **Working from home:** Costs incurred while working from home. You can claim a home office allowance (€6 per day, up to a maximum of €1,260 per year) or actual costs if you have a separate home office, subject to certain conditions (per the Taxfix guide on Recurring Costs).\n* **Further education and training:** Costs for courses, seminars, specialist literature, or conferences directly related to your self-employed activity that improve your professional knowledge and skills (per the Taxfix guide on Recurring Costs).\n* **Telephone and internet:** Costs for a landline, mobile phone, or internet connection used for business purposes. You can claim the business-related portion either as a flat-rate allowance (e.g., 20 per cent of the costs, up to a maximum of 20 euros per month) or by providing detailed evidence (per the Taxfix guide on Recurring Costs).\n* **Work equipment:** This includes computer hardware (e.g., laptop, desktop PC, monitor, peripherals), software costs (programs, licences, apps), office supplies (e.g., pen, paper, printer cartridges), technical literature, journals, and other work equipment (tools, measuring devices, accessory hardware) (per the Taxfix guide on Recording work equipment). \n  * *Note on work equipment:* If the net purchase price does not exceed €800, you can deduct it immediately and in full as a business expense. If it exceeds €800 or is used for more than one year, you must depreciate it over its useful life (per the Taxfix guide on Recording work equipment).\n* **Rent for workspaces:** Expenses for an external office, workspace, or a recognised home office (per the Taxfix guide on Other costs associated with self-employment).\n* **Business meals:** Meals incurred for professional reasons, which are usually 70 per cent deductible as business expenses (per the Taxfix guide on Other costs associated with self-employment).\n* **Legal and tax advice:** Work-related costs for solicitors, notaries, or tax advisers (per the Taxfix guide on Other costs associated with self-employment).\n* **Advertising and marketing:** Expenditure on marketing your products, such as business cards, adverts, or website maintenance (per the Taxfix guide on Other costs associated with self-employment).\n* **Other business expenses:** Additional direct costs such as goods, consumables, gifts, interest, or external services (per the Taxfix guide on Other tax issues)."
+  },
+  {
+    "id": "tt5",
+    "question": "I have several questions about charging VAT",
+    "expectedTier": "clarify",
+    "actualTier": "clarify",
+    "match": true,
+    "classification": {
+      "bucket": "unclear",
+      "categoryId": null,
+      "reasoning": "The user states they have several questions about VAT without specifying concrete details, making it too ambiguous to classify into a single category."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 819,
+    "message": "Could you say a bit more about what you're asking? I want to make sure I point you to the right answer rather than guess."
+  },
+  {
+    "id": "tt6",
+    "question": "As a Kleinunternehmer, how does VAT invoicing work for sales in Germany, the EU, and non-EU countries?",
+    "expectedTier": "hedge",
+    "actualTier": "decline_and_handoff",
+    "match": false,
+    "classification": {
+      "bucket": "decline_and_handoff",
+      "categoryId": "cross_border_multi_country",
+      "reasoning": "The user is asking about VAT invoicing for cross-border sales to the EU and non-EU countries, which falls under cross-border multi-country taxation rather than domestic Kleinunternehmer eligibility."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 1592,
+    "message": "I don't have a solid enough source to answer that one directly, and I don't provide binding tax advice. Want me to connect you with a Taxfix tax expert? They can look at your exact situation and give you something you can act on with confidence."
+  },
+  {
+    "id": "tt7",
+    "question": "How is my tax calculated when I work full-time as an employee and run a Kleinunternehmer business on the side?",
+    "expectedTier": "decline",
+    "actualTier": "answer",
+    "match": false,
+    "classification": {
+      "bucket": "in_scope",
+      "categoryId": "kleinunternehmer_eligibility",
+      "reasoning": "The user is asking about how taxes work for their Kleinunternehmer side business alongside an employee job, which falls under the scope of Kleinunternehmer regulations and combined income tax rules."
+    },
+    "topScore": 0.6951863906745362,
+    "groundednessDowngraded": false,
+    "ms": 2496,
+    "message": "Based on the provided sources, the texts do not contain information on how your tax is calculated when working full-time as an employee and running a small business (*Kleinunternehmer*) on the side. \n\nHowever, regarding your occupation and activities for the tax year, the guides note that you can select multiple activities carried out simultaneously or consecutively (per the Taxfix guide on Occupation). Under this section, you would select **\"Employed\"** if you earned a salary during the tax year, and **\"Self-employed/Business\"** if you operated a business (per the Taxfix guide on Occupation). \n\nAdditionally, regarding the small business regulation (*Kleinunternehmerregelung* § 19 UStG), if you apply this rule, you must not show VAT on your invoices and cannot deduct input tax from the tax office (per the Taxfix guide on Small business regulation)."
+  },
+  {
+    "id": "tt8",
+    "question": "Should I set up a GmbH or stay a Freiberufler?",
+    "expectedTier": "decline",
+    "actualTier": "decline_and_handoff",
+    "match": true,
+    "classification": {
+      "bucket": "decline_and_handoff",
+      "categoryId": "entity_structuring",
+      "reasoning": "The user is asking for guidance on business-structure decisions, which falls under entity structuring and is outside the assistant's scope."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 876,
+    "message": "I don't have a solid enough source to answer that one directly, and I don't provide binding tax advice. Want me to connect you with a Taxfix tax expert? They can look at your exact situation and give you something you can act on with confidence."
+  },
+  {
+    "id": "tt9",
+    "question": "Can I claim a tax deduction for a laptop I bought for my freelance side activity (Nebenaktivität) as a Kleinunternehmer?",
+    "expectedTier": "answer",
+    "actualTier": "answer",
+    "match": true,
+    "classification": {
+      "bucket": "in_scope",
+      "categoryId": "work_equipment_gwg",
+      "reasoning": "The user is asking about claiming a tax deduction for a laptop purchased for freelance work, which falls directly under the work equipment and GWG threshold category."
+    },
+    "topScore": 0.7288057434738263,
+    "groundednessDowngraded": false,
+    "ms": 3471,
+    "message": "Hello! As a fellow *Freiberufler* filing for the 2025 tax year, here is how you can handle your laptop expenses based on the official guidelines:\n\n* **Yes, you can claim expenses:** You should answer **\"Yes\"** to having expenses in 2025 if you bought items like a laptop that you mainly used for your self-employed activity (per the Taxfix guide on \"Your Answer (Yes/No)\"). The tax office makes a distinction regarding use, and only the portion used for self-employment reduces your tax burden (per Source 1 and Source 2). If you use something both privately and for self-employment, the costs must be split (per Source 2).\n* **Work equipment category:** A laptop falls under **Computer hardware** (e.g., laptop, desktop PC, monitor, or peripherals that you use for your professional activity) in the recording work equipment section (per the Taxfix guide on \"Recording work equipment\").\n* **Deduction and the €800 net limit:** \n  * As long as the net purchase price **does not exceed €800**, you can deduct the work equipment immediately as a business expense in full in the year of purchase (per the Taxfix guide on \"Recording work equipment\" and Source 2, which also notes that low-value assets under **€952 gross** can usually be written off in full in the year of purchase).\n  * If the net price exceeds the €800 limit (or if you use the work equipment for more than one year), assets at or above the €800 GWG threshold require multi-year depreciation over their useful life rather than being written off completely in the year of purchase (per the Taxfix guide on \"Recording work equipment\" and the knowledge base limitation). *Note: Because the available data only carries the immediate-write-off rule for items under €800, if your laptop's net price is at or above €800, multi-year depreciation (AfA) applies, but a specific multi-year schedule is not provided here—please consider a human-expert handoff if you need exact scheduling for a higher-priced machine.*\n\n*(Note regarding your status as a Kleinunternehmer: While the small business regulation [§ 19 UStG] means you do not charge VAT on your invoices and cannot claim input tax back from the tax office [per the Taxfix guide on the Kleinunternehmerregelung], you can still declare your business expenses like work equipment on your tax return to affect your profit calculation).*"
+  },
+  {
+    "id": "tt10",
+    "question": "How do I claim back home-office expenses on my tax return?",
+    "expectedTier": "answer",
+    "actualTier": "hedge",
+    "match": false,
+    "classification": {
+      "bucket": "in_scope",
+      "categoryId": "home_office_deduction",
+      "reasoning": "The user is asking a direct question about claiming the home office deduction on their tax return, which is covered under the in_scope home_office_deduction category."
+    },
+    "topScore": 0.6887178132171254,
+    "groundednessDowngraded": true,
+    "ms": 5790,
+    "message": "Here's the general rule, but the right answer depends on your specific situation — double-check the parts flagged below against your own numbers before you file. \n\nAs a Freiberufler, you can claim home-office expenses by selecting the \"Working from home\" option for expenses incurred in connection with your self-employment, which helps reduce your profit and tax liability in the EÜR annex (per the Taxfix guide: Your Answer). How you claim them depends on whether you have a separate study or use the daily allowance:\n\n* **Daily Allowance:** If you work from home, you can use the daily allowance of €6 for each day spent working from home, up to a maximum value of €1,260 per year (per the Taxfix guide: Daily rate & Your Answer). *Note: The exact amount you can claim here depends on your specific number of days worked from home.*\n* **Separate Study / Actual Room Costs:** You can declare costs for a separate study if you use a specially furnished room (with four walls and a door) that is used almost exclusively for work (more than 90%) and represents the centre of your entire business and professional activity (meaning all or the majority of your work-relevant activities are carried out there, and you work more than 50% from home in the study) (per the Taxfix guide: Centre of activity & Room costs). *Note: Whether your specific room meets these strict requirements (such as the 90% professional use and centre of activity thresholds) depends entirely on your room setup and working habits, and the tax office may require proof like a floor plan and photos (per the Taxfix guide: Centre of activity & Good to know).*\n* **Flat Rate vs. Actual Costs:** If you meet the requirements for a separate study, the costs can either be stated at a flat rate of €105 per month (annual value €1,260) or as actual room costs (per the Taxfix guide: Room cost type). *Note: The lump sum and room costs cannot be declared at the same time for the same period (per the Taxfix guide: Good to know).*\n\nWant this checked against your exact numbers? A Taxfix tax expert can take a look."
+  },
+  {
+    "id": "etsy1",
+    "question": "What would change if I lose my Kleinunternehmer status? Would bookkeeping get too complicated to do myself, would prices need to rise, do people regret switching?",
+    "expectedTier": "hedge",
+    "actualTier": "decline_and_handoff",
+    "match": false,
+    "classification": {
+      "bucket": "decline_and_handoff",
+      "categoryId": "entity_structuring",
+      "reasoning": "The user is asking about the consequences and decisions surrounding leaving Kleinunternehmer status, which falls under business-structure decisions handled by entity_structuring."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 1668,
+    "message": "I don't have a solid enough source to answer that one directly, and I don't provide binding tax advice. Want me to connect you with a Taxfix tax expert? They can look at your exact situation and give you something you can act on with confidence."
+  },
+  {
+    "id": "rd1",
+    "question": "I am doing a full time job and work 2 days a week from home in a dedicated 15m2 room. I have equipment receipts. What documents or proof do I need for the home office tax return?",
+    "expectedTier": "clarify",
+    "actualTier": "clarify",
+    "match": true,
+    "classification": {
+      "bucket": "unclear",
+      "categoryId": null,
+      "reasoning": "The user mentions a full-time job and describes home office expenses in that context while mentioning no self-employment activity of their own, making it ambiguous whether they are self-employed."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 859,
+    "message": "Could you say a bit more about what you're asking? I want to make sure I point you to the right answer rather than guess."
+  },
+  {
+    "id": "rd2",
+    "question": "I'm a freelance journalist earning side-hustle level income. My laptop is dying and I'm considering buying a new M4 MacBook Pro. How do I do a tax write off for a new laptop?",
+    "expectedTier": "hedge",
+    "actualTier": "answer",
+    "match": false,
+    "classification": {
+      "bucket": "in_scope",
+      "categoryId": "work_equipment_gwg",
+      "reasoning": "The user is asking how to write off a new laptop for freelance work, which directly falls under work equipment and the GWG immediate write-off rules."
+    },
+    "topScore": 0.6797469125275877,
+    "groundednessDowngraded": false,
+    "ms": 3056,
+    "message": "Hello! As a fellow self-employed freelancer in Germany navigating tax year 2025, here is how you can handle the write-off for your new laptop, based on the Taxfix guides:\n\n* **Split Use:** Only the part of the costs that is used for your self-employment is deductible. If you use the laptop both privately and for self-employment, the costs must be split (per the Taxfix guide: Important Information).\n* **Work Equipment Category:** A laptop counts as computer hardware, which falls under work equipment (per the Taxfix guide: Your answer).\n* **Value Thresholds & Write-off Rules:** \n  * If you purchase low-value assets (e.g., less than €952 gross, or where the net purchase price does not exceed €800), you can usually write off the costs in full and immediately as a business expense in the year of purchase (per the Taxfix guide: Important Information & Your answer). \n  * If the net price exceeds the €800 limit (or €952 gross) or if the equipment is used for more than one year, you must depreciate it over its useful life rather than completely in the year of purchase (per the Taxfix guide: Important Information & Your answer). \n  * *Note on higher-value items:* Assets at or above the €800 GWG threshold require multi-year depreciation (AfA). If your new MacBook Pro hits or exceeds this limit, you must depreciate it over its useful life (per the Taxfix guide: Your answer and known knowledge base limitations). \n\nWhen you file, you can record this under computer hardware and check whether your specific purchase price falls below or exceeds the €800 net / €952 gross limit to determine whether you can deduct it immediately or need to enter it into the \"Depreciation\" section (per the Taxfix guide: Your answer)."
+  },
+  {
+    "id": "rd3",
+    "question": "Meine Ausgaben für Meta Ads und Tools laufen noch über meine private Kreditkarte, ab wann sollte ich eine separate Firmenkarte nehmen?",
+    "expectedTier": "soft_redirect",
+    "actualTier": "soft_redirect",
+    "match": true,
+    "classification": {
+      "bucket": "soft_redirect",
+      "categoryId": "off_topic",
+      "reasoning": "The user is asking about when to get a separate business credit card for their expenses, which is a business-operations question rather than a tax deduction rule."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 1685,
+    "message": "Ich bin speziell für Fragen zur Steuer für Selbstständige in Deutschland gebaut – das ist das Einzige, bei dem ich wirklich gut helfen kann."
+  },
+  {
+    "id": "rd4",
+    "question": "Ich möchte mir ein Auto als Firmenwagen kaufen (elektrisch), arbeite aber fast ausschließlich im Homeoffice. Wird die 50%-Hürde für die geschäftliche Nutzung trotzdem beachtet?",
+    "expectedTier": "decline",
+    "actualTier": "decline_and_handoff",
+    "match": true,
+    "classification": {
+      "bucket": "decline_and_handoff",
+      "categoryId": "company_car_vehicle_taxation",
+      "reasoning": "The user is asking about company car taxation rules (electric vehicle and business use thresholds), which falls under the out-of-scope vehicle taxation category."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 1591,
+    "message": "Ich habe dazu keine verlässliche Quelle, um das direkt zu beantworten, und ich gebe keine verbindliche Steuerberatung. Soll ich dich mit einem Taxfix-Steuerexperten verbinden? Die können sich deine genaue Situation ansehen und dir eine Auskunft geben, auf die du dich verlassen kannst."
+  },
+  {
+    "id": "rd5",
+    "question": "Braucht ein Partyverleih-Gewerbe (Bierbänke, Zelte) eine Gewerbeanmeldung, und welche Steuern bzw. Sozialabgaben sind zu leisten?",
+    "expectedTier": "decline",
+    "actualTier": "decline_and_handoff",
+    "match": true,
+    "classification": {
+      "bucket": "decline_and_handoff",
+      "categoryId": "trade_tax_gewerbesteuer",
+      "reasoning": "The user is asking about a Gewerbe (party rental business) and trade tax/business registration, which falls outside the scope of this Freiberufler-focused tax assistant."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 25572,
+    "message": "Dazu habe ich keine verlässliche Quelle, um das direkt zu beantworten, und ich gebe keine verbindliche Steuerberatung. Soll ich dich mit einem Taxfix-Steuerexperten verbinden? Die können sich deine genaue Situation ansehen und dir eine Auskunft geben, auf die du dich verlassen kannst."
+  },
+  {
+    "id": "rd6",
+    "question": "Kann ein Einzelunternehmer mit Kleingewerbe die Homeoffice-Tagespauschale als Betriebsausgabe geltend machen, wenn die Betriebsstätte des Gewerbes an seiner privaten Wohnadresse gemeldet ist?",
+    "expectedTier": "answer",
+    "actualTier": "answer",
+    "match": true,
+    "classification": {
+      "bucket": "in_scope",
+      "categoryId": "home_office_deduction",
+      "reasoning": "The user is asking a specific tax question about deducting the home office flat rate as a business expense, which falls directly under the home_office_deduction category regardless of their Kleingewerbe status."
+    },
+    "topScore": 0.6767291446726087,
+    "groundednessDowngraded": false,
+    "ms": 2950,
+    "message": "Ja, die Tagespauschale kann unter bestimmten Bedingungen als Betriebsausgabe geltend gemacht werden (per § 4 EStG Abs. 5 Nr. 6c und per Taxfix-Leitfaden).\n\nGemäß § 4 Absatz 5 Nummer 6c EStG kann für jeden Kalendertag, an dem die betriebliche oder berufliche Tätigkeit überwiegend in der häuslichen Wohnung ausgeübt und keine außerhalb der häuslichen Wohnung belegene erste Tätigkeitsstätte aufgesucht wird, für die gesamte betriebliche und berufliche Betätigung ein Betrag von 6 Euro (Tagespauschale) bis zu einem Höchstbetrag von 1.260 Euro im Wirtschafts- oder Kalenderjahr abgezogen werden. \n\nSteht für die betriebliche oder berufliche Tätigkeit dauerhaft kein anderer Arbeitsplatz zur Verfügung, ist ein Abzug der Tagespauschale zudem zulässig, auch wenn die Tätigkeit am selben Kalendertag auswärts ausgeübt wird (per § 4 EStG Abs. 5 Nr. 6c).\n\nEs ist jedoch zu beachten, dass der Abzug der Tagespauschale nicht zulässig ist, soweit für die Wohnung Unterkunftskosten im Rahmen einer doppelten Haushaltsführung abgezogen werden können oder soweit ein Abzug für ein häusliches Arbeitszimmer (entweder als Jahrespauschale von 1.260 Euro oder als tatsächliche Raumkosten) vorgenommen wird (per § 4 EStG Abs. 5 Nr. 6c und Taxfix-Leitfaden zu Raumkosten). Die Tagespauschale und die Raumkosten für ein separates Arbeitszimmer können folglich nicht gleichzeitig für denselben Zeitraum deklariert werden (per Taxfix-Leitfaden: \"Good to know\")."
+  },
+  {
+    "id": "rd7",
+    "question": "Ich kaufe als Einzelunternehmer mein erstes Firmenauto (ca. 95% geschäftliche Nutzung). Wie behandle ich Vorsteuer, Abschreibung und Fahrtenbuch?",
+    "expectedTier": "decline",
+    "actualTier": "decline_and_handoff",
+    "match": true,
+    "classification": {
+      "bucket": "decline_and_handoff",
+      "categoryId": "company_car_vehicle_taxation",
+      "reasoning": "The user is asking about company car taxation, including depreciation, VAT handling, and mileage logbooks (Fahrtenbuch) for a motor vehicle, which is explicitly excluded from the assistant's scope."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 1830,
+    "message": "Ich habe keine solide genug Quelle, um das direkt zu beantworten, und ich gebe keine verbindliche Steuerberatung. Möchtest du, dass ich dich mit einem Steuerexperten von Taxfix verbinde? Er kann sich deine genaue Situation ansehen und dir etwas liefern, worauf du vertrauen kannst."
+  },
+  {
+    "id": "rd8",
+    "question": "Ich lease ein Auto und nutze die 1%-Methode für die Privatnutzung. Wie wirkt sich das auf meine Umsatzsteuervoranmeldung aus?",
+    "expectedTier": "decline",
+    "actualTier": "decline_and_handoff",
+    "match": true,
+    "classification": {
+      "bucket": "decline_and_handoff",
+      "categoryId": "company_car_vehicle_taxation",
+      "reasoning": "The user is asking about company car taxation using the 1-percent rule and its effect on VAT for a leased vehicle, which falls directly under the excluded company car and motor vehicle taxation category."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 1591,
+    "message": "Ich habe keine verlässliche Quelle, um das direkt zu beantworten, und ich gebe keine verbindliche Steuerberatung. Möchtest du, dass ich dich mit einem Steuerexperten von Taxfix verbinde? Die können sich deine genaue Situation ansehen und dir etwas an die Hand geben, worauf du dich verlassen kannst."
+  },
+  {
+    "id": "rd9",
+    "question": "Ich habe ein Kleingewerbe mit Kleinunternehmerregelung und liege unter der Gewerbesteuer-Freigrenze. Welche Steuerbescheide bekomme ich zurück?",
+    "expectedTier": "decline",
+    "actualTier": "decline_and_handoff",
+    "match": true,
+    "classification": {
+      "bucket": "decline_and_handoff",
+      "categoryId": "trade_tax_gewerbesteuer",
+      "reasoning": "The user is asking about tax assessment notices (Steuerbescheide) in relation to their Kleingewerbe and Gewerbesteuer, which falls under trade tax rather than general freelance income tax."
+    },
+    "topScore": null,
+    "groundednessDowngraded": false,
+    "ms": 1791,
+    "message": "Ich habe keine verlässliche Quelle, um das direkt zu beantworten, und ich gebe keine verbindliche steuerliche Beratung. Möchtest du, dass ich dich mit einem Steuerexperten von Taxfix verbinde? Die können sich deine genaue Situation ansehen und dir etwas an die Hand geben, worauf du dich verlassen kannst."
+  },
+  {
+    "id": "rd10",
+    "question": "Gibt es eine Möglichkeit, ein E-Bike als Betriebsausgabe für mein Freelance-Business anzusetzen?",
+    "expectedTier": "hedge",
+    "actualTier": "answer",
+    "match": false,
+    "classification": {
+      "bucket": "in_scope",
+      "categoryId": "work_equipment_gwg",
+      "reasoning": "Bicycles and e-bikes are considered ordinary work equipment rather than motor vehicles, making this an in-scope question about business expense deductions."
+    },
+    "topScore": 0.7039619633348592,
+    "groundednessDowngraded": false,
+    "ms": 3006,
+    "message": "Basierend auf den vorliegenden Quellen gibt es in den Auszügen keine spezifische Erwähnung von E-Bikes oder Fahrrädern als absetzbare Betriebsausgaben. \n\nDie Quellen decken folgende Kategorien für Betriebsausgaben ab:\n* **Geschäftsreisen und Fahrten** (z. B. zu Kunden, Geschäftspartnern oder Schulungen), bei denen entweder die tatsächlichen Kosten (wie Tickets oder Benzin) oder die Kilometerpauschale von 0,30 Euro pro gefahrenem Kilometer (0,38 Euro ab dem 21. Kilometer) geltend gemacht werden können (per Taxfix-Leitfaden zu wiederkehrenden Kosten).\n* **Arbeitsmittel** (wie Computerhardware, Software, Bürobedarf, Fachliteratur und anderes Arbeitszubehör), für die bei Anschaffungskosten von bis zu 800 Euro netto (bzw. geringwertigen Wirtschaftsgütern unter 952 Euro brutto) ein sofortiger Abzug als Betriebsausgabe möglich ist (per Taxfix-Leitfaden zu Arbeitsmitteln und wichtiger Information). Liegt der Betrag höher oder wird das Arbeitsmittel über ein Jahr hinaus genutzt, muss es über seine Nutzungsdauer abgeschrieben werden (per Taxfix-Leitfaden zu Arbeitsmitteln).\n\nDa E-Bikes in den vorliegenden Texten nicht aufgeführt sind, lässt sich dazu anhand der Quellen keine direkte Aussage treffen. Für genaue Regelungen zu speziellen Fortbewegungsmitteln wie E-Bikes liegen im Rahmen dieser Wissensbasis keine Informationen vor."
+  }
+]

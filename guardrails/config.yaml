@@ -42,7 +42,16 @@ stage_1_safety_gate:
 
   soft_redirect_categories:
     - id: off_topic
-      description: Non-tax questions (general chit-chat, unrelated topics).
+      description: >
+        Non-tax questions (general chit-chat, unrelated topics) — AND
+        business-operations/bookkeeping-practice questions that mention
+        expenses but aren't actually asking whether something is
+        deductible (e.g. "when should I get a separate business bank card,"
+        "what accounting software should I use"). The presence of the word
+        "expenses" doesn't make it a tax question — the ask has to be about
+        a deduction/tax rule. Real miss during eval: a question about
+        separating a private and business credit card got classified as
+        business_expenses_general instead of this (research/user_questions.md rd3).
       message: >
         I'm built specifically for self-employed tax questions in Germany —
         that's the one thing I can actually help with well.
@@ -51,14 +60,31 @@ stage_1_safety_gate:
   # knowledge base was built to cover. Different from hard_refuse — these
   # are real, reasonable questions, and every one of them gets the handoff
   # CTA below (see `handoff` block) rather than a plain apology.
+  #
+  # Structured as {id, description} (not a flat string list) so the
+  # classifier prompt can be built directly from this file — no topic
+  # description gets hardcoded a second time in application code.
   decline_and_handoff_topics:
-    - company_car_vehicle_taxation   # EV phase-ins, Fahrtenbuch — narrow & high-complexity
-    - trade_tax_gewerbesteuer        # doesn't apply to Freiberufler (EStG §18) — persona mismatch
-    - entity_structuring             # e.g. "should I become a GmbH / leave Kleinunternehmer"
-    - tax_audits_betriebspruefung    # Finanzamt audit correspondence
-    - cross_border_multi_country     # foreign income, double taxation treaties
-    - personalized_tax_calculation   # "how much do I owe" on the user's actual filed numbers
-    - penalties_back_taxes_criminal  # Steuerstrafrecht, Säumniszuschläge, etc.
+    - id: company_car_vehicle_taxation
+      description: >
+        Company car / motor vehicle (Kraftfahrzeug) taxation — EV phase-ins,
+        Fahrtenbuch, private-use percentage rules. Cars/motorcycles only —
+        does NOT include bicycles or e-bikes, which are ordinary work
+        equipment (see work_equipment_gwg), not a Kraftfahrzeug under this
+        rule. Confirmed via a real misclassification during eval (see
+        research/user_questions.md rd10).
+    - id: trade_tax_gewerbesteuer
+      description: Trade tax (Gewerbesteuer) — doesn't apply to Freiberufler (EStG §18); relevant for Gewerbe/Einzelunternehmer askers.
+    - id: entity_structuring
+      description: Business-structure decisions, e.g. "should I become a GmbH" or "should I leave Kleinunternehmer status."
+    - id: tax_audits_betriebspruefung
+      description: Tax audits — Finanzamt audit correspondence or being audited (Betriebsprüfung).
+    - id: cross_border_multi_country
+      description: Foreign income, double taxation treaties, non-EU/cross-border VAT questions.
+    - id: personalized_tax_calculation
+      description: Asking the assistant to calculate actual tax owed from the user's real numbers, rather than explain a rule.
+    - id: penalties_back_taxes_criminal
+      description: Penalties, back taxes, Steuerstrafrecht, Säumniszuschläge.
 
 # ---------------------------------------------------------------------------
 # STAGE 2 — Confidence engine. Runs only for messages that pass stage 1 and
@@ -66,13 +92,21 @@ stage_1_safety_gate:
 # retrieval grounding, not on the model's self-reported confidence.
 # ---------------------------------------------------------------------------
 stage_2_confidence_engine:
+  # Same {id, description} structure as decline_and_handoff_topics above,
+  # for the same reason — one source of truth for the classifier.
   in_scope_topics:
-    - home_office_deduction        # häusliches Arbeitszimmer / Homeoffice-Pauschale
-    - business_expenses_general    # Betriebsausgaben, EStG §4
-    - work_equipment_gwg           # laptops, tools, GWG €800 threshold
-    - gifts_and_client_meals       # €50 gift limit, 70% business-meal deductibility
-    - vat_rates                    # 19% / 7% / 0%
-    - kleinunternehmer_eligibility # UStG §19 thresholds and mechanics
+    - id: home_office_deduction
+      description: Home office deduction — häusliches Arbeitszimmer or the Homeoffice-Pauschale flat rate.
+    - id: business_expenses_general
+      description: General business expenses (Betriebsausgaben) under EStG §4 — what counts, what's deductible.
+    - id: work_equipment_gwg
+      description: Work equipment (laptops, tools, software) and the GWG €800 immediate-write-off threshold.
+    - id: gifts_and_client_meals
+      description: Gifts to business partners/clients (€50 limit) and business meals (70% deductibility).
+    - id: vat_rates
+      description: VAT rates — 19% standard, 7% reduced, 0% cases.
+    - id: kleinunternehmer_eligibility
+      description: Kleinunternehmerregelung (small business VAT exemption) — thresholds and mechanics under UStG §19.
 
   # Note: this list gates on TOPIC, never on the asker's business-structure
   # persona (Freiberufler vs. Gewerbe/Einzelunternehmer). Some in-scope
@@ -81,8 +115,14 @@ stage_2_confidence_engine:
   # are excluded specifically because they depend on it. See
   # guardrails/policy.md "Persona gate is per-rule, not per-user".
 
+  # `topics`: which in_scope_topics this gap applies to — used to keep it
+  # out of unrelated prompts. Real bug found in eval: injecting this
+  # unconditionally leaked "€800" into home-office answers, which isn't in
+  # the retrieved context for that topic, and tripped the groundedness
+  # check into a wrong downgrade.
   known_gaps:
     - id: depreciation_above_gwg_threshold
+      topics: [work_equipment_gwg]
       description: >
         Assets at or above the €800 GWG threshold require multi-year
         depreciation (AfA); data/ only carries the immediate-write-off rule.
@@ -95,8 +135,20 @@ stage_2_confidence_engine:
   # Cosine similarity scores from Gemini embeddings, scale 0-1.
   # Starting values only — placeholders to be tuned once a real eval set
   # of sample questions with known-correct answers exists.
+  # Calibrated 2026-08-15 against the 21-question golden set
+  # (assistant/eval/golden.json) using gemini-embedding-001. Original
+  # placeholders (0.75/0.55) were too strict — real "should answer directly"
+  # questions scored 0.67-0.73, and 0.75 pushed all of them into hedge.
+  # Residual finding, not fully resolved by threshold alone: a few
+  # borderline questions (e.g. "which taxes apply to me as a Kleinunternehmer")
+  # score in the same 0.72-0.73 band as clear answer-tier questions, despite
+  # deserving a hedge for reasons unrelated to retrieval strength (question
+  # breadth, not weak grounding) — a single scalar signal can't fully
+  # separate "good source match" from "question is broader than one grounded
+  # answer can cover." Documented as a real limitation, not chased further
+  # given the time budget.
   thresholds:
-    answer_min_similarity: 0.75   # top retrieved chunk must clear this to answer directly
+    answer_min_similarity: 0.65   # top retrieved chunk must clear this to answer directly
     hedge_min_similarity: 0.55    # below answer_min but at/above this -> hedge
     # below hedge_min_similarity -> decline & hand off (no reliable source found)
 

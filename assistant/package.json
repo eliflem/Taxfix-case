@@ -1,0 +1,20 @@
+{
+  "name": "taxfix-self-employed-assistant",
+  "version": "0.1.0",
+  "description": "RAG assistant for self-employed tax questions in Germany (Freiberufler persona). Prototype for Taxfix AI PM Builder case study.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build-embeddings": "node --experimental-strip-types --env-file=.env src/buildEmbeddings.ts",
+    "ask": "node --experimental-strip-types --env-file=.env src/cli.ts",
+    "eval": "node --experimental-strip-types --env-file=.env src/runEval.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^1.0.0",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0"
+  }
+}
