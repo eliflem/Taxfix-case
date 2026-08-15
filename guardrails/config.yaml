@@ -74,6 +74,24 @@ stage_2_confidence_engine:
     - vat_rates                    # 19% / 7% / 0%
     - kleinunternehmer_eligibility # UStG §19 thresholds and mechanics
 
+  # Note: this list gates on TOPIC, never on the asker's business-structure
+  # persona (Freiberufler vs. Gewerbe/Einzelunternehmer). Some in-scope
+  # topics (e.g. home_office_deduction) apply identically regardless of that
+  # status; some out-of-scope topics (e.g. trade_tax_gewerbesteuer in stage 1)
+  # are excluded specifically because they depend on it. See
+  # guardrails/policy.md "Persona gate is per-rule, not per-user".
+
+  known_gaps:
+    - id: depreciation_above_gwg_threshold
+      description: >
+        Assets at or above the €800 GWG threshold require multi-year
+        depreciation (AfA); data/ only carries the immediate-write-off rule.
+        Confirmed via 2 real user questions (see research/user_questions.md).
+      behavior: >
+        State the €800 rule and confirm items under it. For items at/above
+        it, hedge — confirm multi-year depreciation applies without stating
+        a schedule, offer human-expert handoff.
+
   # Cosine similarity scores from Gemini embeddings, scale 0-1.
   # Starting values only — placeholders to be tuned once a real eval set
   # of sample questions with known-correct answers exists.

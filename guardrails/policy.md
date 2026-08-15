@@ -134,6 +134,39 @@ assistant" slide: one thing worth keeping, one thing worth fixing.
 - **Never takes filing actions.** Informational only.
 - **Never assists tax evasion**, regardless of how the request is framed.
 
+## Persona gate is per-rule, not per-user
+
+The knowledge base is scoped to a Freiberufler/first-time-filer persona (see
+`persona` in `config.yaml`), which raised a fair question once real questions
+came in from Reddit: what happens when a Kleingewerbe/Einzelunternehmer (not
+strictly a Freiberufler) asks something? The tier logic already gets this
+right by construction — it gates on **topic**, never on who's asking. A
+question about the home-office flat rate is answered the same way regardless
+of whether the asker is Freiberufler or Gewerbe, because that rule doesn't
+care; a trade-tax question is declined regardless of who asks, because trade
+tax is excluded as a *topic*, not as a "wrong persona" check. Two real
+examples (`research/user_questions.md`) confirm this is the right shape: a
+Kleingewerbe user asking about the Homeoffice-Tagespauschale gets a real
+answer, an Einzelunternehmer asking about Gewerbesteuer thresholds gets
+declined — same mechanism, different outcome, and neither required checking
+who the user is. Stated explicitly here because it wasn't obvious from
+`config.yaml` alone that this was deliberate rather than an oversight.
+
+## Known v1 gap: depreciation above the GWG threshold
+
+`data/german_tax_law/estg_6...md` only carries the immediate-write-off rule
+(assets ≤ €800 net). Two independent real questions (a freelancer replacing
+a laptop with a MacBook Pro, an e-bike as a business expense) hit exactly
+the case above that threshold, where German tax law requires multi-year
+depreciation (AfA) instead. That's a deliberate v1 boundary, not an
+oversight discovered late: general AfA schedules pull in BMF useful-life
+tables (Afa-Tabellen) that are administrative guidance rather than statute
+text, meaningfully expanding scope for a case that's still hedge-able
+without them. Behavior: state the €800 rule and confirm items under it are
+fully deductible immediately; for anything at or above it, hedge — confirm
+multi-year depreciation applies, don't attempt to state the schedule, offer
+the human-expert handoff for the specifics.
+
 ## Named refusal examples (ready to demo)
 
 1. **"Should I give up Kleinunternehmer status and set up a GmbH to pay
