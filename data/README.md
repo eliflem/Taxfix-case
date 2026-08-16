@@ -62,3 +62,9 @@ header.
   doesn't apply to this persona. Kept in `estg_18` as the reasoning source for
   why the assistant should decline trade-tax questions rather than answer them
   (a real Gewerbe user asking would need a different persona/knowledge base).
+
+## Not yet in this dataset
+
+- Reddit/blog-sourced real user questions (separate curation effort, for
+  problem framing — not part of the retrieval corpus)
+- Eval question set (sample Q&A pairs with expected answers/citations)

@@ -232,7 +232,15 @@ currently only measures the former precisely.
 - One (`tt2`) is arguably a reconsideration of my own original golden-set
   tag rather than a pipeline error.
 
-## Open — not yet built
+## Status
 
-- Formal metrics definition (beyond raw eval accuracy)
-- Supabase edge function port for the Lovable build
+Both items previously listed here as open are done:
+
+- **Metrics** are formally defined in `metrics.md` (repo root) — includes
+  an explicit split between what's measurable today from the eval harness
+  and what needs production instrumentation not built for v1, plus why.
+- **The Supabase edge function port** is built, deployed, and live —
+  `supabase/functions/ask-tax-assistant/`, a Deno port of the pipeline
+  described in this document, verified against the deployed endpoint and
+  the published Lovable demo (all tiers, all guardrail behaviors
+  confirmed working end-to-end, not just in the local Node prototype).
